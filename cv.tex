@@ -8,6 +8,8 @@
 \usepackage{multirow}
 \usepackage[table]{xcolor}
 \usepackage[compact]{titlesec}
+\usepackage{url}
+\usepackage{hyperref}
 
 \newenvironment{packed_items}{
     \begin{itemize}
@@ -24,15 +26,18 @@
         
         {\today}
         
+        \vspace{10pt}
+
         {
             \begin{tabularx}{\textwidth}{lXr}
-            43 Lynfield Ave     &  &                                  \\
-            Ilam                &  &              Home: (03)  \\
-            Christchurch, 8041  &  &             Mobile: 027 738 4883 \\
-            New Zealand         &  & Email: ghostunderscore@gmail.com \\
+            43 Lynfield Ave     &  &                   Mobile: 027 738 4883 \\
+            Ilam                &  & Email: \url{ghostunderscore@gmail.com} \\
+            Christchurch, 8041  &  & Github profile: \url{https://github.com/Nemo157} \\
+            New Zealand         &  & Stack Overflow profile: \url{http://bit.ly/stack-nemo}
             \end{tabularx}
         }
     \end{centering}
+
     \section*{Profile}\small
     \vspace{-5pt}
 
@@ -50,6 +55,39 @@
             \item{High level of technical skills relating to the IT industry.}
             \item{Quick learner, especially for any computer related activities.}
         \end{packed_items}
+
+    \section*{Computer/IT Employment History}
+        \subsubsection*{2010-2011 \quad Summer Student \quad Tait Electronics Ltd}\small
+            Responsibilities:
+            \begin{packed_items}
+              \item{Transform a tool from an internal protocol to utilise SNMP.}
+              \item{Update SharpSNMP\footnote{\url{http://sharpsnmplib.codeplex.com/}} to support parsing more MIB data.}
+              \item{Write a python utility to generate C mapping code from a set of XML, and config files.}
+              \item{Write good accurate documentation on all changes.}
+            \end{packed_items}
+        \subsubsection*{2009-2010 \quad Summer Studentship \quad Plant and Food}\small
+            Responsibilities:
+            \begin{packed_items}
+                \item{Design a farm irrigation calculator based off a spreadsheet prototype.}
+                \item{Implement the design in C\#.}
+                \item{Self manage the design and implementation of this program.}
+                \item{Document the program.}
+            \end{packed_items}
+        \subsubsection*{2008-2009 \quad Casual Worker \quad Canterbury University Centre for Teaching And Learning}\small
+            Responsibilities:
+            \begin{packed_items}
+                \item{Support work around the new Moodle Implementation.}
+                \item{Help run workshops teaching lecturers to use Moodle.}
+                \item{Manage workflow within tasks assigned.}
+                \item{Keep good records of work done, issues encountered, etc. and maintain confidentiality at all times.}
+            \end{packed_items}
+
+    \section*{Open Source Work}
+        \subsubsection*{SharpSNMP}\small
+            Updated the MIB parser to support parsing more of the information contained\footnote{Change documentation: \url{http://db.tt/0nphrIa}}.
+        \subsubsection*{Rubinius}\small
+            Small fix to some tests, hopefully more to come.
+
     \section*{Current Course of Study}
     \vspace{-7pt}
         \subsubsection*{Bachelor of Engineering with Honours at University of Canterbury.}
@@ -83,44 +121,10 @@
                 2009 & ENEL203 & Principles of Electronics                          & A    \\
                 2009 & ENEL211 & Design and Management 1                            & Pass \\
                 \hline
-                2008 & COSC229 & Algorithms                                         & A+ \\
-                2008 & EMTH171 & Mathematical Modelling and Computation             & A+ \\
-                2008 & ENGR101 & Foundations of Engineering                         & A  \\
-                2008 & MATH254 & Linear Algebra 2                                   & A+ \\
-                2008 & MATH264 & Multivariate Calculus and Differential Equations   & A  \\
-                2008 & PHYS113 & Waves, Thermodynamics and Materials                & A+ \\
-                2008 & PHYS114 & Electrical and Quantum Physics                     & A+ \\
-                \hline
-                2007 & MATH199           & Advancing in Mathematical Sciences       & A+ \\
-                2007 & 159.101           & Programming Fundamentals. (Massey University) & A+ \\
-                2007 & 159.102           & Computer Science Fundamentals.  (Massey University) & A+ \\
-                \hline
             \end{tabularx}
             }
 
-    \section*{Computer/IT Employment History}
-        \subsubsection*{2010-2011 \quad Summer Student \quad Tait Electronics Ltd}\small
-            Responsibilities:
-            \begin{packed_items}
-              \item{Transform a tool from an internal protocol to utilise SNMP}
-            \end{packed_items}
-        \subsubsection*{2009-2010 \quad Summer Studentship \quad Plant and Food}\small
-            Responsibilities:
-            \begin{packed_items}
-                \item{Design a farm irrigation calculator based off a spreadsheet prototype.}
-                \item{Implement the design in C\#.}
-                \item{Self manage the design and implementation of this program.}
-                \item{Document the program.}
-            \end{packed_items}
-        \subsubsection*{2008-2009 \quad Casual Worker \quad Canterbury University Centre for Teaching And Learning}\small
-            Responsibilities:
-            \begin{packed_items}
-                \item{Support work around the new Moodle Implementation.}
-                \item{Help run workshops teaching lecturers to use Moodle.}
-                \item{Manage workflow within tasks assigned.}
-                \item{Keep good records of work done, issues encountered, etc. and maintain confidentiality at all times.}
-            \end{packed_items}
-    \section*{Achievements}
+   \section*{Achievements}
         \begin{packed_items}
             \item{I was selected for the National Science and Technology Forum, held in Auckland in January 2007.}
             \item{I am Proximae Accessit for 2007 at Marlborough Boys’ College.}
@@ -129,16 +133,36 @@
             \item{I achieved the pre-requisites for National Certificate in Computing (level 3) and National Certificate in Electronics Technology (level 2) in 2006.}
             \item{I was awarded the Koru Award for my outstanding performance during the 2009/2010 Summer Studentship programme at Plant \& Food Research.}
         \end{packed_items}
+
     \section*{Referees}
-        \begin{tabularx}{\textwidth}{XX}
-            Dr. Hamish Brown                & Derek Chirnside                                    \\
-            \emph{Scientist}                & \emph{Organisational Learning Contractor}          \\
-            The New Zealand Institute for   & Formerly:                                          \\
-            Plant and Food Research Limited & \qquad \emph{Senior Educational Designer}          \\
-            Private Bag 4704, Christchurch  & \qquad University Centre for Teaching and Learning \\
-            (03) 325 9394                   & \qquad University of Canterbury                    \\
-            027 226 1166                    & 021 511 303                                        \\
-            Hamish.Brown@plantandfood.co.nz & derek.chirnside@gmail.com                          \\
+        \begin{tabularx}{\textwidth}{ll}
+          \begin{minipage}{0.5\textwidth}
+            Dr. Hamish Brown \\
+            \emph{Scientist}
+          \end{minipage} & \begin{minipage}{0.5\textwidth}
+            Joe Osman \\
+            \emph{Design Engineer}
+          \end{minipage} \\ \\
+          \begin{minipage}{0.5\textwidth}
+            The New Zealand Institute for \\
+            Plant and Food Research Limited \\
+            Private Bag 4704 \\
+            Christchurch \\
+            New Zealand
+          \end{minipage} & \begin{minipage}{0.5\textwidth}
+            Tait Radio Communications \\
+            175 Roydvale Avenue \\
+            Christchurch \\
+            New Zealand
+          \end{minipage} \\ \\
+          \begin{minipage}{0.5\textwidth}
+            +64 3 325 9394 \\
+            +64 27 226 1166 \\
+            \url{Hamish.Brown@plantandfood.co.nz}
+          \end{minipage} & \begin{minipage}{0.5\textwidth}
+            +64 3 357 1584 \\
+            \url{joe.osman@taitradio.com}
+          \end{minipage} \\ \\
         \end{tabularx}
 
 \end{document}
