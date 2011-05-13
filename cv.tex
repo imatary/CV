@@ -1,168 +1,224 @@
-\documentclass[10pt]{article}
+\documentclass[10pt,a4]{article}
 \usepackage{a4wide}
-\usepackage{ifpdf}
-\usepackage{graphicx}
 \usepackage{amsmath, amsthm, amssymb}
-\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage{tabularx}
 \usepackage{multirow}
-\usepackage[table]{xcolor}
-\usepackage[compact]{titlesec}
 \usepackage{url}
 \usepackage{hyperref}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{parcolumns}
+\usepackage[sc]{titlesec}
 
 \newenvironment{packed_items}{
-    \begin{itemize}
-    \setlength{\itemsep}{1pt}
-    \setlength{\parskip}{0pt}
-    \setlength{\parsep}{0pt}
-}{\end{itemize}}
+  \ignorespaces
+  \begin{itemize}
+  \small
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{
+  \end{itemize}
+  \ignorespacesafterend
+}
 
-\setlength{\parskip}{0pt}
-\setlength{\parindent}{0pt}
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{grey}{rgb}{0.3,0.3,0.3}
+
+\newcommand{\leftstyle}[1]{\raggedleft{\color{black}\Large\scshape#1}}
+\newcommand{\rightstyle}{\raggedright\color{grey}\setlength{\parindent}{0pt}\setlength{\parskip}{0pt}}
+\newcommand{\rightheadingstyle}[1]{{\raggedright\color{black}\large\scshape#1}\color{grey}}
+\newcommand{\sect}[2]{
+  \colchunk{\leftstyle{#1}}
+  \colchunk{\rightstyle{#2}}
+  \colplacechunks
+  \vspace{20pt}
+}
+
 \begin{document}
-    \begin{centering}
-        {\LARGE William George Looman}
+  \begin{parcolumns}[colwidths={1=0.3\textwidth}]{2}
+    \sect{
+      \LARGE \textbf{W}im \textbf{L}ooman
+      \vspace{5pt}
+      \large \today
+    } {
+      \begin{tabularx}{0.7\textwidth}{lr}
+        \begin{minipage}{0.35\textwidth}
+          43 Lynfield Ave \\
+          Ilam \\
+          Christchurch, 8041 \\
+          New Zealand
+        \end{minipage} & \begin{minipage}{0.35\textwidth}
+          +64 27 738 4883 \\
+          \url{ghostunderscore@gmail.com} \\
+          \url{https://github.com/Nemo157}
+        \end{minipage}
+      \end{tabularx}
+    }
+
+    \sect{
+      Profile
+    } {
+      I am a dedicated worker able to work well individually or as part of a
+      team. I have a good grounding in Ruby, Python, Java, C\#, C and C++ with a little
+      experience in \LaTeX\, \& Erlang and can pick up new computer languages
+      quickly. I have built 6+ computers for myself and others; in building
+      these computers I personally selected compatible parts, connected it all
+      together and installed appropriate operating systems, drivers and
+      software. I have had experience in setting up network, RAID/LVM’s and
+      virtualising machines under both Windows and Linux.
+    }
+
+    \sect{
+      Strengths
+    } {
+      High level of technical skills relating to the IT industry.
+
+      Quick learner, especially for any computer related activities.
+    }
+
+    \sect{
+      Employment
+    } {
+      \rightheadingstyle{Tait Electronics Ltd --- 2010--2011}
+      \begin{packed_items}
+        \item{Transform a tool from an internal protocol to utilise SNMP.}
+        \item{Update SharpSNMP\footnote{\url{http://sharpsnmplib.codeplex.com/}} to support parsing more MIB data.}
+        \item{Write a python utility to generate C mapping code from a set of XML, and config files.}
+        \item{Write good accurate documentation on all changes.}
+      \end{packed_items}
+
+      \rightheadingstyle{Plant and Food --- 2009--2010}
+      \begin{packed_items}
+        \item{Design a farm irrigation calculator based off a spreadsheet prototype.}
+        \item{Implement the design in C\#.}
+        \item{Self manage the design and implementation of this program.}
+        \item{Document the program.}
+      \end{packed_items}
+
+      \rightheadingstyle{University of Canterbury UCTL --- 2008--2009}
+      \begin{packed_items}
+        \item{Support work around the new Moodle Implementation.}
+        \item{Help run workshops teaching lecturers to use Moodle.}
+        \item{Manage workflow within tasks assigned.}
+        \item{Keep good records of work done, issues encountered, etc. and maintain confidentiality at all times.}
+      \end{packed_items}
+    }
+
+    \sect{
+      Open Source
+    } {
+      \rightheadingstyle{SharpSNMP}
+      \begin{packed_items}
+        \item{Updated the MIB parser to support parsing more of the information contained\footnote{Change documentation: \url{http://db.tt/0nphrIa}}.}
+      \end{packed_items}
         
-        {\today}
-        
-        \vspace{10pt}
+      \rightheadingstyle{Rubinius}
+      \begin{packed_items}
+        \item{Small fix to some tests, hopefully more to come.}
+      \end{packed_items}
+    }
 
-        {
-            \begin{tabularx}{\textwidth}{lXr}
-            43 Lynfield Ave     &  &                   Mobile: 027 738 4883 \\
-            Ilam                &  & Email: \url{ghostunderscore@gmail.com} \\
-            Christchurch, 8041  &  & Github profile: \url{https://github.com/Nemo157} \\
-            New Zealand         &  & Stack Overflow profile: \url{http://bit.ly/stack-nemo}
-            \end{tabularx}
-        }
-    \end{centering}
+    \sect{
+      Current Course of Study
+    } {
+      \rightheadingstyle{Bachelor of Engineering with Honours at University of Canterbury.}
 
-    \section*{Profile}\small
-    \vspace{-5pt}
+      \rowcolors{1}{white}{lightgray}\footnotesize
+      \begin{tabularx}{0.7\textwidth}{llXl}
+        \hline
+        \textbf{Year} & \textbf{Course} & & \\
+        \hline
+        2011 & COSC428 & Computer Vision                                    &      \\
+        2011 & COSC422 & Advanced Computer Graphics                         &      \\
+        2011 & COSC401 & Machine Learning                                   &      \\
+        2011 & ENCE427 & Computer Engineering Project                       &      \\
+        2011 & ENEL429 & Computer Hardware Engineering 2                    &      \\
+        2011 & ENEL430 & Control Systems                                    &      \\
+        2011 & ENEL438 & Engineering Economics and Management               &      \\
+        2010 & COSC324 & Advanced Software Engineering                      & A    \\
+        2010 & COSC329 & Algorithms and Artificial Intelligence             & A+   \\
+        2010 & COSC332 & Data and Network Security                          & A    \\
+        2010 & COSC363 & Computer Graphics                                  & A+   \\
+        2010 & ENEL334 & Electronic Device Engineering                      & B    \\
+        2010 & ENEL350 & Design and Management 2                            & A-   \\
+        2010 & ENEL351 & Signals, Systems and Control                       & A+   \\
+        2010 & ENEL353 & Computer Hardware Engineering I                    & A+   \\
+        2009 & COSC224 & Introduction to Software Engineering               & A+   \\
+        2009 & COSC225 & Human-Computer Interaction                         & A-   \\
+        2009 & COSC227 & Probabilistic Methods and Information Theory       & A+   \\
+        2009 & COSC231 & Introduction to Data Communications                & A+   \\
+        2009 & ENCE208 & C Programming                                      & A+   \\
+        2009 & ENCE221 & Introduction to Computer Systems                   & A+   \\
+        2009 & ENEL202 & Circuits and Systems                               & A+   \\
+        2009 & ENEL203 & Principles of Electronics                          & A    \\
+        2009 & ENEL211 & Design and Management 1                            & Pass \\
+        \hline
+      \end{tabularx}
+    }
 
-        I am a dedicated worker able to work well individually or as part of a
-        team. I have a good grounding in Ruby, Python, Java, C\#, C and C++ with a little
-        experience in \LaTeX\, \& Erlang and can pick up new computer languages
-        quickly. I have built 6+ computers for myself and others; in building
-        these computers I personally selected compatible parts, connected it all
-        together and installed appropriate operating systems, drivers and
-        software. I have had experience in setting up network, RAID/LVM’s and
-        virtualising machines under both Windows and Linux.
+    \sect{
+      Achievements
+    } {
+      \begin{packed_items}
+        \item{I was selected for the National Science and Technology Forum, held in Auckland in January 2007.}
+        \item{I am Proximae Accessit for 2007 at Marlborough Boys’ College.}
+        \item{I achieved NCEA scholarships in Physics and Statistics with Modelling and got outstanding in Mathematics with Calculus in 2007.}
+        \item{I was awarded the National Certificate of Educational Achievement (level 3), achieved with merit in 2007 and levels 1 and 2 in 2005.}
+        \item{I achieved the pre-requisites for National Certificate in Computing (level 3) and National Certificate in Electronics Technology (level 2) in 2006.}
+        \item{I was awarded the Koru Award for my outstanding performance during the 2009/2010 Summer Studentship programme at Plant \& Food Research.}
+      \end{packed_items}
+    }
 
-        \subsection*{Strengths}
-        \begin{packed_items}\small
-            \item{High level of technical skills relating to the IT industry.}
-            \item{Quick learner, especially for any computer related activities.}
-        \end{packed_items}
-
-    \section*{Computer/IT Employment History}
-        \subsubsection*{2010-2011 \quad Summer Student \quad Tait Electronics Ltd}\small
-            Responsibilities:
-            \begin{packed_items}
-              \item{Transform a tool from an internal protocol to utilise SNMP.}
-              \item{Update SharpSNMP\footnote{\url{http://sharpsnmplib.codeplex.com/}} to support parsing more MIB data.}
-              \item{Write a python utility to generate C mapping code from a set of XML, and config files.}
-              \item{Write good accurate documentation on all changes.}
-            \end{packed_items}
-        \subsubsection*{2009-2010 \quad Summer Studentship \quad Plant and Food}\small
-            Responsibilities:
-            \begin{packed_items}
-                \item{Design a farm irrigation calculator based off a spreadsheet prototype.}
-                \item{Implement the design in C\#.}
-                \item{Self manage the design and implementation of this program.}
-                \item{Document the program.}
-            \end{packed_items}
-        \subsubsection*{2008-2009 \quad Casual Worker \quad Canterbury University Centre for Teaching And Learning}\small
-            Responsibilities:
-            \begin{packed_items}
-                \item{Support work around the new Moodle Implementation.}
-                \item{Help run workshops teaching lecturers to use Moodle.}
-                \item{Manage workflow within tasks assigned.}
-                \item{Keep good records of work done, issues encountered, etc. and maintain confidentiality at all times.}
-            \end{packed_items}
-
-    \section*{Open Source Work}
-        \subsubsection*{SharpSNMP}\small
-            Updated the MIB parser to support parsing more of the information contained\footnote{Change documentation: \url{http://db.tt/0nphrIa}}.
-        \subsubsection*{Rubinius}\small
-            Small fix to some tests, hopefully more to come.
-
-    \section*{Current Course of Study}
-    \vspace{-7pt}
-        \subsubsection*{Bachelor of Engineering with Honours at University of Canterbury.}
-            {\rowcolors{1}{white}{lightgray}\footnotesize
-            \begin{tabularx}{\textwidth}{llXl}
-                \hline
-                \textbf{Year} & \textbf{Course} & & \\
-                \hline
-                2011 & COSC428 & Computer Vision                                    &      \\
-                2011 & COSC422 & Advanced Computer Graphics                         &      \\
-                2011 & COSC401 & Machine Learning                                   &      \\
-                2011 & ENCE427 & Computer Engineering Project                       &      \\
-                2011 & ENEL429 & Computer Hardware Engineering 2                    &      \\
-                2011 & ENEL430 & Control Systems                                    &      \\
-                2011 & ENEL438 & Engineering Economics and Management               &      \\
-                2010 & COSC324 & Advanced Software Engineering                      & A    \\
-                2010 & COSC329 & Algorithms and Artificial Intelligence             & A+   \\
-                2010 & COSC332 & Data and Network Security                          & A    \\
-                2010 & COSC363 & Computer Graphics                                  & A+   \\
-                2010 & ENEL334 & Electronic Device Engineering                      & B    \\
-                2010 & ENEL350 & Design and Management 2                            & A-   \\
-                2010 & ENEL351 & Signals, Systems and Control                       & A+   \\
-                2010 & ENEL353 & Computer Hardware Engineering I                    & A+   \\
-                2009 & COSC224 & Introduction to Software Engineering               & A+   \\
-                2009 & COSC225 & Human-Computer Interaction                         & A-   \\
-                2009 & COSC227 & Probabilistic Methods and Information Theory       & A+   \\
-                2009 & COSC231 & Introduction to Data Communications                & A+   \\
-                2009 & ENCE208 & C Programming                                      & A+   \\
-                2009 & ENCE221 & Introduction to Computer Systems                   & A+   \\
-                2009 & ENEL202 & Circuits and Systems                               & A+   \\
-                2009 & ENEL203 & Principles of Electronics                          & A    \\
-                2009 & ENEL211 & Design and Management 1                            & Pass \\
-                \hline
-            \end{tabularx}
-            }
-
-   \section*{Achievements}
-        \begin{packed_items}
-            \item{I was selected for the National Science and Technology Forum, held in Auckland in January 2007.}
-            \item{I am Proximae Accessit for 2007 at Marlborough Boys’ College.}
-            \item{I achieved NCEA scholarships in Physics and Statistics with Modelling and got outstanding in Mathematics with Calculus in 2007.}
-            \item{I was awarded the National Certificate of Educational Achievement (level 3), achieved with merit in 2007 and levels 1 and 2 in 2005.}
-            \item{I achieved the pre-requisites for National Certificate in Computing (level 3) and National Certificate in Electronics Technology (level 2) in 2006.}
-            \item{I was awarded the Koru Award for my outstanding performance during the 2009/2010 Summer Studentship programme at Plant \& Food Research.}
-        \end{packed_items}
-
-    \section*{Referees}
-        \begin{tabularx}{\textwidth}{ll}
-          \begin{minipage}{0.5\textwidth}
+    \sect{
+      Referees
+    } {
+      \begin{minipage}{0.7\textwidth}
+        \begin{parcolumns}[colwidths={1=0.5\textwidth}]{2}
+          \colchunk{
             Dr. Hamish Brown \\
             \emph{Scientist}
-          \end{minipage} & \begin{minipage}{0.5\textwidth}
+          }
+
+          \colchunk{
             Joe Osman \\
             \emph{Design Engineer}
-          \end{minipage} \\ \\
-          \begin{minipage}{0.5\textwidth}
+          }
+
+          \colplacechunks \vspace{10pt}
+
+          \colchunk{
             The New Zealand Institute for \\
             Plant and Food Research Limited \\
             Private Bag 4704 \\
             Christchurch \\
             New Zealand
-          \end{minipage} & \begin{minipage}{0.5\textwidth}
+          }
+
+          \colchunk{
             Tait Radio Communications \\
             175 Roydvale Avenue \\
             Christchurch \\
             New Zealand
-          \end{minipage} \\ \\
-          \begin{minipage}{0.5\textwidth}
+          }
+
+          \colplacechunks \vspace{10pt}
+
+          \colchunk{
             +64 3 325 9394 \\
             +64 27 226 1166 \\
             \url{Hamish.Brown@plantandfood.co.nz}
-          \end{minipage} & \begin{minipage}{0.5\textwidth}
+          }
+
+          \colchunk{
             +64 3 357 1584 \\
             \url{joe.osman@taitradio.com}
-          \end{minipage} \\ \\
-        \end{tabularx}
+          }
 
-\end{document}
+          \colplacechunks \vspace{10pt}
+        \end{parcolumns}
+      \end{minipage}
+    }
+    \end{parcolumns}
+  \end{document}
