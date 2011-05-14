@@ -1,5 +1,6 @@
 \documentclass[10pt,a4]{article}
 \usepackage{a4wide}
+\usepackage[utf8]{inputenc}
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage{tabularx}
@@ -8,58 +9,64 @@
 \usepackage{hyperref}
 \usepackage{color}
 \usepackage[table]{xcolor}
-\usepackage{parcolumns}
+\usepackage{parcolumns} % NOTE: This is a customised version in this directory.
+% It was changed to remove all start of paragraph indentation.
 \usepackage[sc]{titlesec}
+\usepackage{ragged2e}
+
+\hypersetup{
+  pdfborder = {0 0 0}
+}
 
 \newenvironment{packed_items}{
   \ignorespaces
   \begin{itemize}
   \small
-  \setlength{\itemsep}{1pt}
-  \setlength{\parskip}{0pt}
-  \setlength{\parsep}{0pt}
 }{
   \end{itemize}
   \ignorespacesafterend
 }
 
 \definecolor{black}{rgb}{0,0,0}
+\definecolor{dark}{rgb}{0.15,0.15,0.15}
 \definecolor{grey}{rgb}{0.3,0.3,0.3}
 
 \newcommand{\leftstyle}[1]{\raggedleft{\color{black}\Large\scshape#1}}
-\newcommand{\rightstyle}{\raggedright\color{grey}\setlength{\parindent}{0pt}\setlength{\parskip}{0pt}}
-\newcommand{\rightheadingstyle}[1]{{\raggedright\color{black}\large\scshape#1}\color{grey}}
+\newcommand{\rightstyle}{\raggedright\color{grey}}
+\newcommand{\rightheadingstyle}[1]{{\color{dark}\large\scshape#1}\color{grey}}
 \newcommand{\sect}[2]{
   \colchunk{\leftstyle{#1}}
-  \colchunk{\rightstyle{#2}}
+  \colchunk{\rightstyle#2}
   \colplacechunks
   \vspace{20pt}
 }
 
 \begin{document}
-  \begin{parcolumns}[colwidths={1=0.3\textwidth}]{2}
-    \sect{
+  \begin{parcolumns}[colwidths={1=0.3\textwidth},nofirstindent]{3}
+    \colchunk{\leftstyle{
       \LARGE \textbf{W}im \textbf{L}ooman
       \vspace{5pt}
       \large \today
-    } {
-      \begin{tabularx}{0.7\textwidth}{lr}
-        \begin{minipage}{0.35\textwidth}
-          43 Lynfield Ave \\
-          Ilam \\
-          Christchurch, 8041 \\
-          New Zealand
-        \end{minipage} & \begin{minipage}{0.35\textwidth}
-          +64 27 738 4883 \\
-          \url{ghostunderscore@gmail.com} \\
-          \url{https://github.com/Nemo157}
-        \end{minipage}
-      \end{tabularx}
+    }}
+    \colchunk{\rightstyle
+      43 Lynfield Ave, Ilam \\
+      Christchurch, 8041 \\
+      New Zealand
     }
+    \colchunk{\rightstyle\raggedleft
+      +64 27 738 4883 \\
+      \href{mailto:ghostunderscore@gmail.com}{\nolinkurl{ghostunderscore@gmail.com}} \\
+      \url{https://github.com/Nemo157}
+    }
+    \colplacechunks
+    \vspace{20pt}
+  \end{parcolumns}
+
+  \begin{parcolumns}[colwidths={1=0.3\textwidth},nofirstindent]{2}
 
     \sect{
       Profile
-    } {
+    } { \justifying
       I am a dedicated worker able to work well individually or as part of a
       team. I have a good grounding in Ruby, Python, Java, C\#, C and C++ with a little
       experience in \LaTeX\, \& Erlang and can pick up new computer languages
@@ -84,7 +91,7 @@
       \rightheadingstyle{Tait Electronics Ltd --- 2010--2011}
       \begin{packed_items}
         \item{Transform a tool from an internal protocol to utilise SNMP.}
-        \item{Update SharpSNMP\footnote{\url{http://sharpsnmplib.codeplex.com/}} to support parsing more MIB data.}
+        \item{Update SharpSNMP to support parsing more MIB data.}
         \item{Write a python utility to generate C mapping code from a set of XML, and config files.}
         \item{Write good accurate documentation on all changes.}
       \end{packed_items}
@@ -109,22 +116,29 @@
     \sect{
       Open Source
     } {
-      \rightheadingstyle{SharpSNMP}
+      \rightheadingstyle{SharpSNMP\footnotemark}
       \begin{packed_items}
-        \item{Updated the MIB parser to support parsing more of the information contained\footnote{Change documentation: \url{http://db.tt/0nphrIa}}.}
+        \item{Updated the MIB parser to support parsing more of the information contained\footnotemark.}
       \end{packed_items}
         
-      \rightheadingstyle{Rubinius}
+      \rightheadingstyle{Rubinius\footnotemark}
       \begin{packed_items}
         \item{Small fix to some tests, hopefully more to come.}
       \end{packed_items}
     }
 
-    \sect{
-      Current Course of Study
-    } {
-      \rightheadingstyle{Bachelor of Engineering with Honours at University of Canterbury.}
+    \footnotetext[1]{\url{http://sharpsnmplib.codeplex.com/}}
+    \footnotetext{Change documentation: \url{http://db.tt/0nphrIa}}
+    \footnotetext{\url{http://rubini.us/}}
 
+    \newpage
+
+    \sect{
+      Study
+    } {
+      \rightheadingstyle{\normalsize 4th year of BE(Hons) at the University of Canterbury}
+
+      \color{dark}
       \rowcolors{1}{white}{lightgray}\footnotesize
       \begin{tabularx}{0.7\textwidth}{llXl}
         \hline
@@ -170,55 +184,53 @@
         \item{I was awarded the Koru Award for my outstanding performance during the 2009/2010 Summer Studentship programme at Plant \& Food Research.}
       \end{packed_items}
     }
+  \end{parcolumns}
 
-    \sect{
+  \begin{parcolumns}[colwidths={1=0.3\textwidth,2=0.35\textwidth},nofirstindent]{3}
+    \colchunk{ \leftstyle{
       Referees
-    } {
-      \begin{minipage}{0.7\textwidth}
-        \begin{parcolumns}[colwidths={1=0.5\textwidth}]{2}
-          \colchunk{
-            Dr. Hamish Brown \\
-            \emph{Scientist}
-          }
+    }}
 
-          \colchunk{
-            Joe Osman \\
-            \emph{Design Engineer}
-          }
-
-          \colplacechunks \vspace{10pt}
-
-          \colchunk{
-            The New Zealand Institute for \\
-            Plant and Food Research Limited \\
-            Private Bag 4704 \\
-            Christchurch \\
-            New Zealand
-          }
-
-          \colchunk{
-            Tait Radio Communications \\
-            175 Roydvale Avenue \\
-            Christchurch \\
-            New Zealand
-          }
-
-          \colplacechunks \vspace{10pt}
-
-          \colchunk{
-            +64 3 325 9394 \\
-            +64 27 226 1166 \\
-            \url{Hamish.Brown@plantandfood.co.nz}
-          }
-
-          \colchunk{
-            +64 3 357 1584 \\
-            \url{joe.osman@taitradio.com}
-          }
-
-          \colplacechunks \vspace{10pt}
-        \end{parcolumns}
-      \end{minipage}
+    \colchunk{ \rightstyle
+      \hspace{-3.5pt}Dr. Hamish Brown \\
+      \emph{Scientist}
     }
-    \end{parcolumns}
-  \end{document}
+
+    \colchunk{ \rightstyle
+      \hspace{-3.5pt}Joe Osman \\
+      \emph{Design Engineer}
+    }
+
+    \colplacechunks \vspace{10pt}
+
+    \colchunk[2]{ \rightstyle
+      \hspace{-3.5pt}The New Zealand Institute for \\
+      Plant and Food Research Limited \\
+      Private Bag 4704 \\
+      Christchurch \\
+      New Zealand
+    }
+
+    \colchunk{ \rightstyle
+      \hspace{-3.5pt}Tait Radio Communications \\
+      175 Roydvale Avenue \\
+      Christchurch \\
+      New Zealand
+    }
+
+    \colplacechunks \vspace{10pt}
+
+    \colchunk[2]{ \rightstyle
+      \hspace{-3.5pt}+64 3 325 9394 \\
+      +64 27 226 1166 \\
+      \url{hamish.brown@plantandfood.co.nz}
+    }
+
+    \colchunk{ \rightstyle
+      \hspace{-3.5pt}+64 3 357 1584 \\
+      \url{joe.osman@taitradio.com}
+    }
+
+    \colplacechunks \vspace{10pt}
+  \end{parcolumns}
+\end{document}
