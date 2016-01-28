@@ -1,67 +1,20 @@
 \documentclass[10pt,a4]{article}
-\usepackage{a4wide}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath, amsthm, amssymb}
-\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
-\usepackage{tabularx}
-\usepackage{multirow}
-\usepackage{url}
-\usepackage{hyperref}
-\usepackage{color}
-\usepackage[table]{xcolor}
-\usepackage{parcolumns} % NOTE: This is a customised version in this directory.
-% It was changed to remove all start of paragraph indentation.
-\usepackage[sc]{titlesec}
-\usepackage{ragged2e}
-
-\hypersetup{
-  pdfborder = {0 0 0}
-}
-
-\newenvironment{packed_items}{
-  \ignorespaces
-  \begin{itemize}
-  \small
-}{
-  \end{itemize}
-  \ignorespacesafterend
-}
-
-\definecolor{black}{rgb}{0,0,0}
-\definecolor{dark}{rgb}{0.3,0.3,0.3}
-\definecolor{grey}{rgb}{0.4,0.4,0.4}
-
-\newcommand{\leftstyle}[1]{\raggedleft{\color{black}\Large\scshape#1}}
-\newcommand{\rightstyle}{\raggedright\color{grey}}
-\newcommand{\rightheadingstyle}[1]{{\color{dark}\large\scshape#1}\color{grey}}
-\newcommand{\sect}[2]{
-  \colchunk{\leftstyle{#1}}
-  \colchunk{\rightstyle#2}
-  \colplacechunks
-  \vspace{20pt}
-}
-
-\renewcommand{\labelitemii}{$\circ$}
+\usepackage{styles}
 
 \begin{document}
-  \begin{parcolumns}[colwidths={1=0.3\textwidth},nofirstindent]{2}
-    \colchunk{\leftstyle{
-      \LARGE \textbf{W}im \textbf{L}ooman
-      \vspace{5pt}
-      \large \today
-    }}
-    \colchunk{\rightstyle\raggedleft
-      \href{mailto:wim@nemo157.com}{\nolinkurl{wim@nemo157.com}} \\
-      \url{https://nemo157.com}
-    }
-    \colplacechunks
-    \vspace{20pt}
-  \end{parcolumns}
+  \header{
+    \LARGE \textbf{W}im \textbf{L}ooman
+    \vspace{5pt}
+    \large \today
+  }{
+    \rightstyle\raggedleft
+    \href{mailto:wim@nemo157.com}{\nolinkurl{wim@nemo157.com}} \\
+    \url{https://nemo157.com}
+  }
 
-  \begin{parcolumns}[colwidths={1=0.3\textwidth},nofirstindent]{2}
-    \sect{
-      Profile
-    } { \justifying
+  \begin{sects}
+    \sect{Profile}{
+      \justifying
       I am a dedicated worker able to work well individually or as part of a
       team. I am very well trained in C\# and JavaScript (both client and server
       side); have a decent grounding in Ruby, Python, Java, C, C++ and Rust; and
@@ -70,10 +23,8 @@
       relating to the IT industry, and am a quick learner.
     }
 
-    \sect{
-      Employment
-    } {
-      \rightheadingstyle{Telogis \hfill 2011 -- 2015}
+    \sect{Employment}{
+      \rightheadingstyle{Telogis \hfill 2011 --- 2015}
       \begin{packed_items}
         \item{Full stack software engineer working on Telogis Route}
         \begin{packed_items}
@@ -104,7 +55,7 @@
         }
       \end{packed_items}
 
-      \rightheadingstyle{University of Canterbury \hfill 2011 -- 2011}
+      \rightheadingstyle{University of Canterbury \hfill 2011 --- 2011}
 
       \rightheadingstyle{\normalsize Computer Science and Software Engineering Tutoring}
       \begin{packed_items}
@@ -145,9 +96,7 @@
 
     \newpage
 
-    \sect{
-      Open Source
-    } {
+    \sect{Open Source}{
       \rightheadingstyle{SharpSNMP\footnotemark}
 
        Updated the MIB parser to support parsing more of the information contained\footnotemark.
@@ -171,9 +120,7 @@
     \footnotetext[4]{\url{https://github.com/borisyankov/DefinitelyTyped/issues?q=author:Nemo157}}
     \footnotetext[5]{\url{https://github.com/Nemo157}}
 
-    \sect{
-      Study
-    } {
+    \sect{Study}{
       \rightheadingstyle{University of Canterbury \hfill 2008 -- 2011}
 
       \rightheadingstyle{\normalsize Bachelor of Engineering with First Class Honours}
@@ -188,9 +135,7 @@
       \end{packed_items}
     }
 
-    \sect{
-      Achievements
-    } {
+    \sect{Achievements}{
       \vspace{-22pt}
       \begin{packed_items}
         \item{I was selected for the National Science and Technology Forum, held in Auckland in January 2007.}
@@ -202,16 +147,16 @@
       \end{packed_items}
     }
 
-    \sect{
-      Interests
-    } {
+    \sect{Interests}{
       Hockey, cycling, hobby embedded development, video games.
     }
+  \end{sects}
 
-    \sect{
-      Referees
-    } {
-      Available on request.
+  \referees{Referees}{
+    \IfFileExists{referees.tex}{
+      \input{referees.tex}
+    }{
+      \colchunk{\rightstyle{Available on request.}}
     }
-  \end{parcolumns}
+  }
 \end{document}
