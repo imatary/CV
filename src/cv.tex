@@ -139,12 +139,10 @@
     }
   \end{sects}
 
-  \referees{Referees}{
-    \IfFileExists{referees.tex}{
-      \input{referees.tex}
-    }{
-      \colchunk{\rightstyle{Available on request.}}
-    }
+  \IfFileExists{../../referees.tex}{
+    \input{../../referees.tex}
+  }{
+    \referee{Referees}{Available on request.}
   }
 
   \footnotetext[1]{Change documentation: \url{http://db.tt/0nphrIa}}

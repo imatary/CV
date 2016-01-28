@@ -57,7 +57,13 @@
 
 \newcommand{\referees}[2]{
   \begin{parcolumns}[colwidths={1=0.25\textwidth,2=0.3\textwidth},nofirstindent]{3}
-  \colchunk{\leftstyle{#1}}#2
+  \colchunk{\leftstyle{#1}}\colchunk{\rightstyle{#2}}
+  \end{parcolumns}
+}
+
+\newcommand{\referee}[2]{
+  \begin{parcolumns}[colwidths={1=0.25\textwidth},nofirstindent]{2}
+  \colchunk{\leftstyle{#1}}\colchunk{\rightstyle{#2}}
   \end{parcolumns}
 }
 
